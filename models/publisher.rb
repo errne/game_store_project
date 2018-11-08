@@ -10,4 +10,20 @@ class Publisher
     @location = options['location']
   end
 
+  def save()
+    sql = "INSERT INTO publishers
+    (
+      name,
+      location
+    )
+    VALUES
+    (
+      $1, $2
+    )
+    RETURNING id"
+    values = [@name, @location]
+    results = SqlRunner.run(sql, values)
+    @id = results.first()['id'].to_i
+  end
+
 end
