@@ -9,5 +9,4 @@ def initialize(options)
   @location = options['location']
 end
 
-
 end

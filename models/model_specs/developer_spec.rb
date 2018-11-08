@@ -2,7 +2,7 @@ require('minitest/autorun')
 require('minitest/rg')
 require_relative('../developer')
 
-class TestPublisher < MiniTest::Test
+class TestDeveloper < MiniTest::Test
 
   def setup
     options = {"name" => "Bethesda", "location" => "USA" }
