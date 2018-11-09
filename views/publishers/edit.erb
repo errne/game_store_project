@@ -1,0 +1,11 @@
+<h2>Edit <%= @publisher.name %></h2>
+
+<form class="form" action="publishers/<%= @publisher.id%>" method="post">
+  <label for="name"></label>
+  <input type="text" name="name" value="<%= @publisher.name%>">
+
+  <label for="location"></label>
+  <input type="text" name="location" value="<%= @publisher.location%>">
+
+  <input class= "btn-submit" type="submit" value="update">
+</form>

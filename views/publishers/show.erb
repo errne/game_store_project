@@ -1,6 +1,7 @@
 <h1><%= @publisher.name %> (publisher)</h1>
 
 <p>Location: <%= @publisher.location %></p>
+<p> <a href="/publishers/<%= @publisher.id %>/edit"> EDIT</a> </p>
 <form action="/publishers/<%= @publisher.id %>/delete" method="POST">
   <input class="btn-delete" type="submit" value="delete" />
 </form>
