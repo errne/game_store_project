@@ -35,4 +35,8 @@ class TestGame < MiniTest::Test
     assert_equal(10, @game1.get_markup)
   end
 
+  def test_find_game_in_db_by_id
+    assert_equal("New Vegas", Game.find(1).name)
+  end
+
 end
