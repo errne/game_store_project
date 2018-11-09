@@ -26,4 +26,23 @@ class Publisher
     @id = results.first()['id'].to_i
   end
 
+  def self.all()
+    sql = "SELECT * FROM publishers"
+    results = SqlRunner.run( sql )
+    return results.map { |publisher| Publisher.new( publisher ) }
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM publishers
+    WHERE id = $1"
+    values = [id]
+    results = SqlRunner.run( sql, values )
+    return Publisher.new( results.first )
+  end
+
+  def self.delete_all
+    sql = "DELETE FROM publishers"
+    SqlRunner.run( sql )
+  end
+
 end

@@ -17,4 +17,7 @@ class TestPublisher < MiniTest::Test
     assert_equal("USA", @publisher1.location)
   end
 
+  def test_can_find_publsiher_by_id
+    assert_equal("Bethesda", Publisher.find(1).name)
+  end
 end

@@ -1,0 +1,20 @@
+<h1>Publishers</h1>
+
+<p class="btn">
+  <a class="btn" href="/publishers/new">Create new publisher</a>
+</p>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th>Location</th>
+  </tr>
+  <% for publisher in @publishers %>
+  <tr>
+    <td><a href="/publishers/<%= publisher.id %>"><%= publisher.name %></a></td>
+    <td>|</td>
+    <td><%= publisher.location %></td>
+  </tr>
+  <% end %>
+</table>
