@@ -1,0 +1,20 @@
+<h1>Developers</h1>
+
+<p class="btn">
+  <a class="btn" href="/developers/new">Create new developer</a>
+</p>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th>Location</th>
+  </tr>
+  <% for developer in @developers %>
+  <tr>
+    <td><a href="/developers/<%= developer.id %>"><%= developer.name %></a></td>
+    <td>|</td>
+    <td><%= developer.location %></td>
+  </tr>
+  <% end %>
+</table>
