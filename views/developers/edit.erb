@@ -1,0 +1,11 @@
+<h2>Editing <%= @developer.name %></h2>
+
+<form class="form" action="/developers/<%= @developer.id%>" method="post">
+  <label for="name">Company name:</label>
+  <input id = "name" type="text" name="name" value="<%= @developer.name%>">
+
+  <label for="location">Location:</label>
+  <input id = "location" type="text" name="location" value="<%= @developer.location%>">
+
+  <input class= "btn-submit" type="submit" value="update">
+</form>

@@ -1,6 +1,8 @@
 <h1><%= @developer.name %> (developer)</h1>
 
 <p>Location: <%= @developer.location %></p>
+<p> <a href="/developers/<%= @developer.id %>/edit"> EDIT</a> </p>
+
 <form action="/developers/<%= @developer.id %>/delete" method="POST">
   <input class="btn-delete" type="submit" value="delete" />
 </form>

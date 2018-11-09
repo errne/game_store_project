@@ -5,7 +5,7 @@ also_reload( '../models/*' )
 
 get '/publishers' do
   @publishers = Publisher.all()
-  erb ( :"publishers/index" )
+  erb (:"publishers/index" )
 end
 
 get '/publishers/new' do
@@ -28,9 +28,9 @@ get '/publishers/:id/edit' do
 end
 
 post '/publishers/:id' do
-  publisher = Publisher.new( params )
+  publisher = Publisher.new(params)
   publisher.update
-  redirect to ("/publishers/#{params[:id]}")
+  redirect to '/publishers/' + params['id']
 end
 
 post '/publishers/:id/delete' do

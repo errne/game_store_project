@@ -42,7 +42,6 @@ class Publisher
       SqlRunner.run( sql, values )
     end
 
-
     def games()
       sql = "SELECT * FROM games
       WHERE publisher_id = $1"

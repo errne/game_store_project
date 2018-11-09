@@ -22,6 +22,17 @@ get '/developers/:id' do
   erb( :"developers/show" )
 end
 
+get '/developers/:id/edit' do
+  @developer = Developer.find(params['id'])
+  erb(:"developers/edit")
+end
+
+post '/developers/:id' do
+  developer = Developer.new(params)
+  developer.update
+  redirect to '/developers/' + params['id']
+end
+
 post '/developers/:id/delete' do
   Developer.delete(params[:id])
   redirect to("/developers")

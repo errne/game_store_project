@@ -4,60 +4,69 @@ require_relative('game')
 class Developer
   attr_reader :name, :id, :location
 
-def initialize(options)
-  @id = options['id'].to_i if options['id']
-  @name = options['name']
-  @location = options['location']
-end
+  def initialize(options)
+    @id = options['id'].to_i if options['id']
+    @name = options['name']
+    @location = options['location']
+  end
 
-def save()
-  sql = "INSERT INTO developers
-  (
-    name,
-    location
-  )
-  VALUES
-  (
-    $1, $2
-  )
-  RETURNING id"
-  values = [@name, @location]
-  results = SqlRunner.run(sql, values)
-  @id = results.first()['id'].to_i
-end
+  def save()
+    sql = "INSERT INTO developers
+    (
+      name,
+      location
+    )
+    VALUES
+    (
+      $1, $2
+    )
+    RETURNING id"
+    values = [@name, @location]
+    results = SqlRunner.run(sql, values)
+    @id = results.first()['id'].to_i
+  end
 
-def games()
-  sql = "SELECT * FROM games
-  WHERE developer_id = $1"
-  values = [@id]
-  results = SqlRunner.run( sql, values )
-  return results.map { |game| Game.new(game) }
-end
+  def update()
+    sql = "UPDATE developers
+    SET (name, location) =
+    ($1, $2)
+    WHERE id = $3"
+    values = [@name, @location, @id]
+    SqlRunner.run(sql, values)
+  end
 
-def self.all()
-  sql = "SELECT * FROM developers"
-  results = SqlRunner.run( sql )
-  return results.map { |developer| Developer.new( developer ) }
-end
+  def games()
+    sql = "SELECT * FROM games
+    WHERE developer_id = $1"
+    values = [@id]
+    results = SqlRunner.run( sql, values )
+    return results.map { |game| Game.new(game) }
+  end
 
-def self.find( id )
-  sql = "SELECT * FROM developers
-  WHERE id = $1"
-  values = [id]
-  results = SqlRunner.run( sql, values )
-  return Developer.new( results.first )
-end
+  def self.all()
+    sql = "SELECT * FROM developers"
+    results = SqlRunner.run( sql )
+    return results.map { |developer| Developer.new( developer ) }
+  end
 
-def self.delete_all
-  sql = "DELETE FROM developers"
-  SqlRunner.run( sql )
-end
+  def self.find( id )
+    sql = "SELECT * FROM developers
+    WHERE id = $1"
+    values = [id]
+    results = SqlRunner.run( sql, values )
+    return Developer.new( results.first )
+  end
 
-def self.delete(id)
-  sql = "DELETE FROM developers
-  WHERE id = $1"
-  values = [id]
-  SqlRunner.run( sql, values )
-end
+  def self.delete_all
+    sql = "DELETE FROM developers"
+    SqlRunner.run( sql )
+  end
+
+  def self.delete(id)
+    sql = "DELETE FROM developers
+    WHERE id = $1"
+    values = [id]
+    SqlRunner.run( sql, values )
+  end
 
 end
