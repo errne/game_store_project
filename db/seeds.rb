@@ -20,3 +20,15 @@ publisher1 = Publisher.new({
 })
 
 publisher1.save()
+
+game1 = Game.new({
+  "name" => "New Vegas",
+  "developer_id" => 1,
+  "publisher_id" => 1,
+  "description" => "The best fallout game",
+  "stock_quantity" => 8,
+  "buying_cost" => 11,
+  "selling_price" => 20
+})
+
+game1.save()

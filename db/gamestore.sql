@@ -19,8 +19,8 @@ CREATE TABLE developers
 CREATE TABLE games (
   id SERIAL8 primary key,
   name VARCHAR(255) not null,
-  developer_id INT4 not null,
-  publisher_id INT4,
+  developer_id INT4 not null references developers(id),
+  publisher_id INT4 references publishers(id),
   description TEXT,
   stock_quantity INT4,
   buying_cost INT4 not null,

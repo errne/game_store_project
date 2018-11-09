@@ -21,4 +21,26 @@ class Game
     return @selling_price - @buying_cost
   end
 
+  def save()
+    sql = "INSERT INTO games
+    (
+      name,
+      developer_id,
+      publisher_id,
+      description,
+      stock_quantity,
+      buying_cost,
+      selling_price
+    )
+    VALUES
+    (
+      $1, $2, $3, $4, $5, $6, $7
+    )
+    RETURNING id"
+    values = [@name, @developer_id, @publisher_id, @description, @stock_quantity,
+          @buying_cost, @selling_price]
+    results = SqlRunner.run(sql, values)
+    @id = results.first()['id'].to_i
+  end
+
 end
