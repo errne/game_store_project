@@ -1,5 +1,9 @@
 <h1><%= @game.name %></h1>
 
+<form action="/games/<%= @game.id %>/delete" method="POST">
+  <input class="btn-delete" type="submit" value="delete" />
+</form>
+
 <p>Developed by: <%= @game.developer.name %></p>
 <p>Published by: <%= @game.publisher.name %></p>
 <p>Buying cost: <%= @game.buying_cost %></p>

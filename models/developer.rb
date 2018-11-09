@@ -1,4 +1,5 @@
 require_relative( '../db/sql_runner' )
+require_relative('game')
 
 class Developer
   attr_reader :name, :id, :location
@@ -50,6 +51,13 @@ end
 def self.delete_all
   sql = "DELETE FROM developers"
   SqlRunner.run( sql )
+end
+
+def self.delete(id)
+  sql = "DELETE FROM developers
+  WHERE id = $1"
+  values = [id]
+  SqlRunner.run( sql, values )
 end
 
 end

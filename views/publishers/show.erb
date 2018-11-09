@@ -1,6 +1,9 @@
 <h1><%= @publisher.name %> (publisher)</h1>
 
 <p>Location: <%= @publisher.location %></p>
+<form action="/publishers/<%= @publisher.id %>/delete" method="POST">
+  <input class="btn-delete" type="submit" value="delete" />
+</form>
 
 <h2>Published games:</h2>
 

@@ -23,3 +23,8 @@ get '/games/:id' do
   @game = Game.find(params['id'].to_i)
   erb( :"games/show" )
 end
+
+post '/games/:id/delete' do
+  Game.delete(params[:id])
+  redirect to("/games")
+end

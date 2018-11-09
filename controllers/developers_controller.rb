@@ -21,3 +21,8 @@ get '/developers/:id' do
   @developer = Developer.find(params['id'].to_i)
   erb( :"developers/show" )
 end
+
+post '/developers/:id/delete' do
+  Developer.delete(params[:id])
+  redirect to("/developers")
+end
