@@ -1,4 +1,6 @@
 require_relative( '../db/sql_runner' )
+require_relative('developer')
+require_relative('publisher')
 
 class Game
 
@@ -21,6 +23,16 @@ class Game
     return @selling_price - @buying_cost
   end
 
+  def developer()
+    developer = Developer.find(@developer_id)
+    return developer
+  end
+
+  def publisher()
+    publisher = Publisher.find(@publisher_id)
+    return  publisher
+  end
+
   def save()
     sql = "INSERT INTO games
     (
@@ -38,28 +50,28 @@ class Game
     )
     RETURNING id"
     values = [@name, @developer_id, @publisher_id, @description, @stock_quantity,
-          @buying_cost, @selling_price]
-    results = SqlRunner.run(sql, values)
-    @id = results.first()['id'].to_i
-  end
+      @buying_cost, @selling_price]
+      results = SqlRunner.run(sql, values)
+      @id = results.first()['id'].to_i
+    end
 
-  def self.all()
-    sql = "SELECT * FROM games"
-    results = SqlRunner.run( sql )
-    return results.map { |game| Game.new( game ) }
-  end
+    def self.all()
+      sql = "SELECT * FROM games"
+      results = SqlRunner.run( sql )
+      return results.map { |game| Game.new( game ) }
+    end
 
-  def self.find( id )
-    sql = "SELECT * FROM games
-    WHERE id = $1"
-    values = [id]
-    results = SqlRunner.run( sql, values )
-    return Game.new( results.first )
-  end
+    def self.find( id )
+      sql = "SELECT * FROM games
+      WHERE id = $1"
+      values = [id]
+      results = SqlRunner.run( sql, values )
+      return Game.new( results.first )
+    end
 
-  def self.delete_all
-    sql = "DELETE FROM games"
-    SqlRunner.run( sql )
-  end
+    def self.delete_all
+      sql = "DELETE FROM games"
+      SqlRunner.run( sql )
+    end
 
-end
+  end

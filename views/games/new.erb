@@ -1,0 +1,44 @@
+<h1>Add new game:</h1>
+
+<form class="form" action="/games" method="post">
+  <div class="form">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name"/>
+  </div>
+  <div class="form">
+    <label for="developer_id">Developed by:</label>
+    <select name="developer_id" id="developer_select">
+      <% @developers.each do |developer| %>
+      <option value=<%= developer.id %>><%= developer.name %></option>
+      <% end %>
+    </select>
+  </div>
+  <div class="form">
+    <label for="publisher">Published by:</label>
+    <select name="publisher_id" id="publisher_select">
+      <% @publishers.each do |publisher| %>
+      <option value=<%= publisher.id %>><%= publisher.name %></option>
+      <% end %>
+    </select>
+  </div>
+  <div class="form">
+    <label for="description">Description:</label>
+    <input type="text" name="description" id="description">
+  </div>
+  <div class="form">
+    <label for="stock_quantity">In stock:</label>
+    <input type="number" name="stock_quantity" id="stock_quantity">
+  </div>
+  <div class="form">
+    <label for="buying_cost">Buying cost:</label>
+    <input type="number" name="buying_cost" id="buying_cost">
+  </div>
+  <div class="form">
+    <label for="selling_price">Selling Price:</label>
+    <input type="number" name="selling_price" id="selling_price">
+  </div>
+  
+  <div class="btn_submit">
+    <input type="submit" value="Add new game"/>
+  </div>
+</form>

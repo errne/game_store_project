@@ -39,4 +39,9 @@ class TestGame < MiniTest::Test
     assert_equal("New Vegas", Game.find(1).name)
   end
 
+  def test_game_returns_developer_and_publisher_name
+    assert_equal("Obsidian", @game1.developer.name)
+    assert_equal("Bethesda", @game1.publisher.name)
+  end
+
 end
