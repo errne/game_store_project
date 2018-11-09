@@ -1,3 +1,11 @@
 <h1><%= @publisher.name %> (publisher)</h1>
 
 <p>Location: <%= @publisher.location %></p>
+
+<h2>Published games:</h2>
+
+<ul>
+  <% @publisher.games.each do |game| %>
+  <li><a href="/games/<%= game.id%>"><%= game.name %></a></li>
+  <% end %>
+</ul>

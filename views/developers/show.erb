@@ -1,3 +1,11 @@
 <h1><%= @developer.name %> (developer)</h1>
 
 <p>Location: <%= @developer.location %></p>
+
+<h2>Developed games:</h2>
+
+<ul>
+  <% @developer.games.each do |game| %>
+  <li><a href="/games/<%= game.id%>"><%= game.name %></a></li>
+  <% end %>
+</ul>

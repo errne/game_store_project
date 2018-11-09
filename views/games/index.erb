@@ -24,9 +24,9 @@
   <tr>
     <td><a href="/games/<%= game.id %>"><%= game.name %></a></td>
     <td>|</td>
-    <td><%= game.developer.name %></td>
+    <td><a href="/developers/<%=game.developer_id%>"><%= game.developer.name %></a></td>
     <td>|</td>
-    <td><%= game.publisher.name %></td>
+    <td><a href="/publishers/<%=game.publisher_id%>"><%= game.publisher.name %></a></td>
     <td>|</td>
     <td><%= game.stock_quantity %></td>
     <td>|</td>

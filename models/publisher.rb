@@ -1,4 +1,5 @@
 require_relative( '../db/sql_runner' )
+require_relative('game')
 
 class Publisher
 
@@ -24,6 +25,14 @@ class Publisher
     values = [@name, @location]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
+  end
+
+  def games()
+    sql = "SELECT * FROM games
+    WHERE publisher_id = $1"
+    values = [@id]
+    results = SqlRunner.run( sql, values )
+    return results.map { |game| Game.new(game) }
   end
 
   def self.all()

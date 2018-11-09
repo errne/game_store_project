@@ -25,6 +25,14 @@ def save()
   @id = results.first()['id'].to_i
 end
 
+def games()
+  sql = "SELECT * FROM games
+  WHERE developer_id = $1"
+  values = [@id]
+  results = SqlRunner.run( sql, values )
+  return results.map { |game| Game.new(game) }
+end
+
 def self.all()
   sql = "SELECT * FROM developers"
   results = SqlRunner.run( sql )
