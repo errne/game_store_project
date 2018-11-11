@@ -1,6 +1,8 @@
 require_relative( '../db/sql_runner' )
 require_relative('developer')
 require_relative('publisher')
+require_relative('tag')
+
 
 class Game
 
@@ -83,8 +85,8 @@ class Game
         ON games_tags.tag_id = tags.id
         WHERE game_id = $1"
         values = [@id]
-        locations = SqlRunner.run(sql, values)
-        return locations.map { |tag| Tag.new(tag) }
+        tags = SqlRunner.run(sql, values)
+        return tags.map { |tag| Tag.new(tag).name }
       end
 
     def self.all()

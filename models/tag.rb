@@ -33,8 +33,8 @@ class Tag
     ON games_tags.game_id = games.id
     WHERE tag_id = $1"
     values = [@id]
-    locations = SqlRunner.run(sql, values)
-    return locations.map { |game| Game.new(game) }
+    games = SqlRunner.run(sql, values)
+    return games.map { |game| Game.new(game) }
   end
 
   def self.all()

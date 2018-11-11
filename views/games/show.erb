@@ -5,7 +5,11 @@
 <div class="description">
   <h3>Description:</h3>
   <p><%= @game.description %></p>
-  <p>Genres: </p>
+  <p>Genres: <% @game.tags.each do |name| %>
+    <%= name%>
+    <%= ", " unless name == @game.tags.last%>
+    <% end%>
+  </p>
 </div>
 
 <p> <a href="/games/<%= @game.id %>/edit"> EDIT</a> </p>
