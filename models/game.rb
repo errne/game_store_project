@@ -76,6 +76,17 @@ class Game
         SqlRunner.run( sql, values )
       end
 
+      def tags()
+        sql = "SELECT tags.*
+        FROM tags
+        INNER JOIN games_tags
+        ON games_tags.tag_id = tags.id
+        WHERE game_id = $1"
+        values = [@id]
+        locations = SqlRunner.run(sql, values)
+        return locations.map { |tag| Tag.new(tag) }
+      end
+
     def self.all()
       sql = "SELECT * FROM games"
       results = SqlRunner.run( sql )
