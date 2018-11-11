@@ -24,6 +24,19 @@ get '/games/:id' do
   erb( :"games/show" )
 end
 
+get '/games/:id/edit' do
+  @developers = Developer.all
+  @publishers = Publisher.all
+  @game = Game.find(params['id'])
+  erb(:"games/edit")
+end
+
+post '/games/:id' do
+  game = Game.new(params)
+  game.update
+  redirect to '/games/' + params['id']
+end
+
 post '/games/:id/delete' do
   Game.delete(params[:id])
   redirect to("/games")

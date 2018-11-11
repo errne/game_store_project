@@ -55,6 +55,27 @@ class Game
       @id = results.first()['id'].to_i
     end
 
+    def update()
+      sql = "UPDATE games
+      SET
+      (
+        name,
+        developer_id,
+        publisher_id,
+        description,
+        stock_quantity,
+        buying_cost,
+        selling_price
+        ) =
+        (
+          $1, $2, $3, $4, $5, $6, $7
+        )
+        WHERE id = $8"
+        values = [@name, @developer_id, @publisher_id, @description, @stock_quantity,
+          @buying_cost, @selling_price, @id]
+        SqlRunner.run( sql, values )
+      end
+
     def self.all()
       sql = "SELECT * FROM games"
       results = SqlRunner.run( sql )

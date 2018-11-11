@@ -1,5 +1,9 @@
 <h1><%= @game.name %></h1>
 
+<p><%= @game.description %></p>
+<p> <a href="/games/<%= @game.id %>/edit"> EDIT</a> </p>
+
+
 <form action="/games/<%= @game.id %>/delete" method="POST">
   <input class="btn-delete" type="submit" value="delete" />
 </form>

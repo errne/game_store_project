@@ -1,0 +1,60 @@
+<h2>Editing <%= @game.name %></h2>
+
+<form class="form" action="/games/<%= @game.id%>" method="post">
+  <div class="">
+    <label for="name">Game name:</label>
+    <input id = "name" type="text" name="name" value="<%= @game.name%>">
+  </div>
+
+  <div class="form">
+    <label for="select-developer">Developer:</label>
+    <select id= "select-developer" name="developer_id" selected = "<%= @game.developer_id%>">
+      <% @developers.each do |developer| %>
+         <% if developer.id == @game.developer_id %>
+           <option value=<%= developer.id %> selected><%= developer.name.capitalize %></option>
+         <% else %>
+           <option value=<%= developer.id %>><%= developer.name.capitalize %></option>
+         <% end %>
+       <% end %>
+
+    </select>
+  </div>
+
+  <div class="form">
+    <label for="publisher">Developer:</label>
+    <select id= "publisher" name="publisher_id">
+
+      <% @publishers.each do |publisher| %>
+      <option value="<%= publisher.id %>" <%= 'selected' if @game.publisher_id == publisher.id %>><%= publisher.name %></option>
+      <% end %>
+
+    </select>
+  </div>
+
+  <div class="form">
+    <label for="description">In stock:</label>
+    <input id = "description" type="text" name="description" value="<%= @game.description%>">
+  </div>
+  <div class="form">
+    <label for="stock-quantity">In stock:</label>
+    <input id = "stock-quantity" type="number" name="stock_quantity" value="<%= @game.stock_quantity%>">
+  </div>
+  <div class="form">
+    <label for="buying-cost">Buying cost</label>
+    <input id="buying-cost" type = "number" name="buying_cost" value="<%= @game.buying_cost%>">
+  </div>
+
+  <div class="form">
+    <label for="selling-price">Selling price</label>
+    <input id= "selling-price "type= "number" name="selling_price" value="<%= @game.selling_price%>">
+  </div>
+
+  <input class= "btn-submit" type="submit" value="update">
+</form>
+
+developer_id,
+publisher_id,
+description,
+stock_quantity,
+buying_cost,
+selling_price
