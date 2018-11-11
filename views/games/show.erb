@@ -1,6 +1,13 @@
 <h1><%= @game.name %></h1>
+<p><a href="/developers/<%= @game.developer_id %>">Developed by: <%= @game.developer.name %></a></p>
+<p><a href="/publishers/<%= @game.publisher_id %>">Published by: <%= @game.publisher.name %></a></p>
 
-<p><%= @game.description %></p>
+<div class="description">
+  <h3>Description:</h3>
+  <p><%= @game.description %></p>
+  <p>Genres: </p>
+</div>
+
 <p> <a href="/games/<%= @game.id %>/edit"> EDIT</a> </p>
 
 
@@ -8,10 +15,8 @@
   <input class="btn-delete" type="submit" value="delete" />
 </form>
 
-<p>Developed by: <%= @game.developer.name %></p>
-<p>Published by: <%= @game.publisher.name %></p>
+
 <p>Buying cost: <%= @game.buying_cost %></p>
 <p>Selling price: <%= @game.selling_price %></p>
 <p>Markup: <%= @game.get_markup %></p>
 <p>In stock: <%= @game.stock_quantity %></p>
-<p>Description: <%= @game.description %></p>

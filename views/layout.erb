@@ -2,28 +2,33 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title>Gameland</title>
+  <title>Gamelandia</title>
   <link rel="stylesheet" type="text/css" href="/style.css"
 </head>
 <body>
   <nav>
-  <ul>
-    <li>
-      <a href="/">Home</a>
-    </li>
-    <li>
-      <a href="/games">Games</a>
-    </li>
-    <li>
-      <a href="/developers">Developers</a>
-    </li>
-    <li>
-      <a href="/publishers">Publishers</a>
-    </li>
-  </ul>
-</nav>
+    <ul>
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/games">Games</a>
+      </li>
+      <li>
+        <a href="/developers">Developers</a>
+      </li>
+      <li>
+        <a href="/publishers">Publishers</a>
+      </li>
+    </ul>
+  </nav>
   <section id="content">
     <%= yield %>
   </section>
+  <div id="footer">
+    <footer>
+      <p>&copy Gamelandia 2018</p>
+    </footer>
+  </div>
 </body>
 </html>
