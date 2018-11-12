@@ -33,7 +33,7 @@
       <td><%= game.selling_price %></td>
       <td>|</td>
       <td><% game.tags.each do |tag| %>
-        <%= tag.name%><%= ", " unless tag == game.tags.last%>
+        <%= tag.name%><%= ", " unless tag.name == game.tags.last.name%>
         <% end%></td>
       </tr>
       <% end %>

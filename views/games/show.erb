@@ -11,8 +11,7 @@
   <p><%= @game.description %></p>
   <hr>
   <p class= "tags">Genres: <% @game.tags.each do |tag| %>
-    <%= tag.name%><%= ", " unless tag == @game.tags.last%>
-
+    <%= tag.name%><%= ", " unless tag.name == @game.tags.last.name%>
     <% end%>
   </p>
   <a  href="/games/<%= @game.id %>/edit/tags"> Edit tags</a>
