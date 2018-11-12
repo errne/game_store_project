@@ -9,11 +9,12 @@
 <div class="description">
   <h3>Description:</h3>
   <p><%= @game.description %></p>
-  <p>Genres: <% @game.tags.each do |name| %>
-    <%= name%><%= ", " unless name == @game.tags.last%>
+  <p>Genres: <% @game.tags.each do |tag| %>
+    <%= tag.name%><%= ", " unless tag == @game.tags.last%>
 
     <% end%>
   </p>
+  <a  href="/games/<%= @game.id %>/edit/tags"> Edit tags</a>
 </div>
 
 <form action="/games/<%= @game.id %>/delete" method="POST">

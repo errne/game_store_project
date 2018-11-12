@@ -24,11 +24,32 @@ def save()
     @id = visit['id'].to_i
   end
 
+  def self.delete_by_game(game_id)
+    sql = "DELETE FROM games_tags
+    WHERE game_id = $1"
+    values = [game_id]
+    SqlRunner.run( sql, values )
+  end
+
+  def self.delete_by_game_and_tag(game_id, tag_id)
+    sql = "DELETE FROM games_tags
+    WHERE game_id = $1 AND tag_id = $2"
+    values = [game_id, tag_id]
+    SqlRunner.run( sql, values )
+  end
+
   def self.all()
     sql = "SELECT * FROM games_tags"
     visits = SqlRunner.run(sql)
     result = visits.map { |gameTag| GameTag.new( gameTag ) }
     return result
+  end
+
+  def self.delete(id)
+    sql = "DELETE FROM games_tags
+    WHERE id = $1"
+    values = [id]
+    SqlRunner.run( sql, values )
   end
 
   def self.delete_all()

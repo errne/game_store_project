@@ -40,7 +40,7 @@
 
   <div class="form">
     <label for="tags">Select tags:</label>
-    <select name="tag_id" id="tag_select">
+    <select name="tag_id[]" id="tag_select" multiple>
       <% @tags.each do |tag| %>
       <option value=<%= tag.id %>><%= tag.name %></option>
       <% end %>

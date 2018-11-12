@@ -18,7 +18,9 @@ end
 
 post '/games' do
   game = Game.new(params).save
-  GameTag.new({"game_id" => game, "tag_id" => params["tag_id"]}).save
+  params["tag_id"].each do |id|
+    GameTag.new({"game_id" => game, "tag_id" => id}).save
+  end
   redirect to '/games'
 end
 
@@ -34,6 +36,22 @@ get '/games/:id/edit' do
   erb(:"games/edit")
 end
 
+get '/games/:id/edit/tags' do
+  @tags = Tag.all
+  @game = Game.find(params['id'])
+  erb(:"games/editTags")
+end
+
+post '/games/:id/edit/tags' do
+  # GameTag.delete(params[:id])
+  # gt = GameTag.new(params)
+  # gt.save
+  params["tag_id"].each do |id|
+    GameTag.new({"game_id" => params['game_id'], "tag_id" => id}).save
+  end
+  redirect to 'games/' + params['id'] + '/edit/tags'
+end
+
 post '/games/:id' do
   game = Game.new(params)
   game.update
@@ -41,6 +59,7 @@ post '/games/:id' do
 end
 
 post '/games/:id/delete' do
+  GameTag.delete_by_game(params[:id])
   Game.delete(params[:id])
   redirect to("/games")
 end

@@ -86,7 +86,7 @@ class Game
         WHERE game_id = $1"
         values = [@id]
         tags = SqlRunner.run(sql, values)
-        return tags.map { |tag| Tag.new(tag).name }
+        return tags.map { |tag| Tag.new(tag) }
       end
 
     def self.all()
