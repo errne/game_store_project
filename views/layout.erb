@@ -2,36 +2,38 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title>Gamelandia</title>
+  <title>EFinv</title>
   <link rel="stylesheet" type="text/css" href="/style.css"
 </head>
 <body>
-  <nav>
-    <div class="header">
-      <img style="float: left; margin: 0px 15px 15px 0px; height: 80px; width: 100px;"
-      src="/images/EFinbor.png" alt="EFinv logo" />
-      <ul>
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/games">Games</a>
-        </li>
-        <li>
-          <a href="/developers">Developers</a>
-        </li>
-        <li>
-          <a href="/publishers">Publishers</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <header>
+    <nav>
+      <div id="header">
+        <img style="float: left; margin: 0px 15px 15px 0px; height: 80px; width: 100px;"
+        src="/images/EFinbor.png" alt="EFinv logo" />
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/games">Games</a>
+          </li>
+          <li>
+            <a href="/developers">Developers</a>
+          </li>
+          <li>
+            <a href="/publishers">Publishers</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
   <section id="content">
     <%= yield %>
   </section>
   <div id="footer">
     <footer>
-      <p>&copy Gamelandia 2018</p>
+      <p>&copy EFinv 2018</p>
     </footer>
   </div>
 </body>

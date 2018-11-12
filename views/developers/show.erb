@@ -1,16 +1,22 @@
 <h1><%= @developer.name %> (developer)</h1>
 
 <p>Location: <%= @developer.location %></p>
-<p> <a href="/developers/<%= @developer.id %>/edit"> EDIT</a> </p>
 
 <form action="/developers/<%= @developer.id %>/delete" method="POST">
   <input class="btn-delete" type="submit" value="delete" />
 </form>
 
-<h2>Developed games:</h2>
+<div class="prodcuts">
 
-<ul>
-  <% @developer.games.each do |game| %>
-  <li><a href="/games/<%= game.id%>"><%= game.name %></a></li>
-  <% end %>
-</ul>
+  <h2>Developed games:</h2>
+
+  <ul>
+    <% @developer.games.each do |game| %>
+    <li><a href="/games/<%= game.id%>"><%= game.name %></a></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="btn-edit">
+  <a href="/developers/<%= @developer.id %>/edit"> EDIT</a>
+</div>

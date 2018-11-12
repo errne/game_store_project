@@ -12,9 +12,6 @@
   </p>
 </div>
 
-<p> <a href="/games/<%= @game.id %>/edit"> EDIT</a> </p>
-
-
 <form action="/games/<%= @game.id %>/delete" method="POST">
   <input class="btn-delete" type="submit" value="delete" />
 </form>
@@ -24,3 +21,7 @@
 <p>Selling price: <%= @game.selling_price %></p>
 <p>Markup: <%= @game.get_markup %></p>
 <p>In stock: <%= @game.stock_quantity %></p>
+
+<div class="btn-edit">
+  <a  href="/games/<%= @game.id %>/edit"> EDIT</a>
+</div>
