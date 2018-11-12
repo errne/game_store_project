@@ -3,18 +3,20 @@
 </div>
 
 <h1><%= @game.name %></h1>
-<p><a href="/developers/<%= @game.developer_id %>">Developed by: <%= @game.developer.name %></a></p>
-<p><a href="/publishers/<%= @game.publisher_id %>">Published by: <%= @game.publisher.name %></a></p>
+<h6><a href="/developers/<%= @game.developer_id %>">Developed by: <%= @game.developer.name %></a></h6>
+<h6><a href="/publishers/<%= @game.publisher_id %>">Published by: <%= @game.publisher.name %></a></h6>
 
 <div class="description">
   <h3>Description:</h3>
   <p><%= @game.description %></p>
-  <p>Genres: <% @game.tags.each do |tag| %>
+  <hr>
+  <p class= "tags">Genres: <% @game.tags.each do |tag| %>
     <%= tag.name%><%= ", " unless tag == @game.tags.last%>
 
     <% end%>
   </p>
   <a  href="/games/<%= @game.id %>/edit/tags"> Edit tags</a>
+  <hr>
 </div>
 
 <form action="/games/<%= @game.id %>/delete" method="POST">
