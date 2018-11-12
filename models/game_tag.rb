@@ -1,5 +1,6 @@
 require_relative( '../db/sql_runner' )
 class GameTag
+  
   attr_reader :id, :game_id, :tag_id
 
 def initialize(options)
@@ -24,6 +25,14 @@ def save()
     @id = visit['id'].to_i
   end
 
+  def self.find( id )
+    sql = "SELECT * FROM games_tags
+    WHERE id = $1"
+    values = [id]
+    results = SqlRunner.run( sql, values )
+    return GameTag.new( results.first )
+  end
+
   def self.delete_by_game(game_id)
     sql = "DELETE FROM games_tags
     WHERE game_id = $1"
@@ -41,6 +50,15 @@ def save()
   def self.all()
     sql = "SELECT * FROM games_tags"
     visits = SqlRunner.run(sql)
+    result = visits.map { |gameTag| GameTag.new( gameTag ) }
+    return result
+  end
+
+  def self.all_by_game(game_id)
+    sql = "SELECT * FROM games_tags
+    WHERE game_id = $1"
+    values = [game_id]
+    visits = SqlRunner.run(sql, values)
     result = visits.map { |gameTag| GameTag.new( gameTag ) }
     return result
   end

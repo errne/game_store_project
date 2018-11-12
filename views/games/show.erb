@@ -14,7 +14,8 @@
     <%= tag.name%><%= ", " unless tag.name == @game.tags.last.name%>
     <% end%>
   </p>
-  <a  href="/games/<%= @game.id %>/edit/tags"> Edit tags</a>
+<!--  <a  href="/games/<%= @game.id %>/edit/tags"> Edit tags</a>-->
+  <a  href="/gameTags/<%= @game.id %>/edit"> EDIT tags</a>
   <hr>
 </div>
 
