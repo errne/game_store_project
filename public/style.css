@@ -28,9 +28,22 @@ td {
 .btn-edit a {
   background-color: red;
   color: white;
-  padding: 1em 1.5em;
+  margin-top: 15px;
+  padding: 1em 1em;
   text-decoration: none;
   text-transform: uppercase;
+}
+.btn-add {
+  padding: 25px;
+  border-radius: 50%;
+}
+
+.btn-add a {
+  background-color: green;
+  color: white;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  border-radius: 50%;
 }
 .products {
   padding: 15px;
