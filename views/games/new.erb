@@ -37,7 +37,16 @@
     <label for="selling_price">Selling Price:</label>
     <input type="number" name="selling_price" id="selling_price">
   </div>
-  
+
+  <div class="form">
+    <label for="tags">Select tags:</label>
+    <select name="tag_id" id="tag_select">
+      <% @tags.each do |tag| %>
+      <option value=<%= tag.id %>><%= tag.name %></option>
+      <% end %>
+    </select>
+  </div>
+
   <div class="btn_submit">
     <input type="submit" value="Add new game"/>
   </div>

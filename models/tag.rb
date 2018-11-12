@@ -39,8 +39,8 @@ class Tag
 
   def self.all()
     sql = "SELECT * FROM tags"
-    results = SqlRunner.run( sql )
-    return results.map { |genre| Genre.new( genre ) }
+    tags = SqlRunner.run( sql )
+    return tags.map { |tag| Tag.new( tag ) }
   end
 
   def self.find(id)
@@ -48,7 +48,7 @@ class Tag
     WHERE id = $1"
     values = [id]
     results = SqlRunner.run( sql, values )
-    return Genre.new( results.first )
+    return Tag.new( results.first )
   end
 
   def self.delete_all

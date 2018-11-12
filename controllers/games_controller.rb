@@ -1,6 +1,7 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require_relative( '../models/game.rb' )
+require_relative('../models/game_tag.rb')
 also_reload( '../models/*' )
 
 get '/games' do
@@ -11,11 +12,13 @@ end
 get '/games/new' do
   @developers = Developer.all
   @publishers = Publisher.all
+  @tags = Tag.all
   erb(:"games/new")
 end
 
 post '/games' do
-  Game.new(params).save
+  game = Game.new(params).save
+  GameTag.new({"game_id" => game, "tag_id" => params["tag_id"]}).save
   redirect to '/games'
 end
 
