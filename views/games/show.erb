@@ -1,3 +1,7 @@
+<div class="logos">
+  <img src="/images/defaultGamePhoto.jpg" alt="default photo" style = "height: 120px; width: 100px;">
+</div>
+
 <h1><%= @game.name %></h1>
 <p><a href="/developers/<%= @game.developer_id %>">Developed by: <%= @game.developer.name %></a></p>
 <p><a href="/publishers/<%= @game.publisher_id %>">Published by: <%= @game.publisher.name %></a></p>
@@ -6,8 +10,8 @@
   <h3>Description:</h3>
   <p><%= @game.description %></p>
   <p>Genres: <% @game.tags.each do |name| %>
-    <%= name%>
-    <%= ", " unless name == @game.tags.last%>
+    <%= name%><%= ", " unless name == @game.tags.last%>
+
     <% end%>
   </p>
 </div>
