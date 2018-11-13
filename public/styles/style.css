@@ -26,34 +26,6 @@ td {
 }
 
 
-.btn-edit {
-  padding: 25px;
-}
-.btn-edit a {
-  background-color: red;
-  color: white;
-  margin-top: 15px;
-  padding: 1em 1em;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-.btn-add {
-  padding: 25px;
-  border-radius: 50%;
-  width: 300px;
-}
-
-.btn-add a {
-  background-color: green;
-  color: white;
-  padding: 1em 1.5em;
-  text-decoration: none;
-  border-radius: 50%;
-}
-.add-button-list {
-  display: block;
-  width: 300px;
-}
 .products {
   padding: 15px;
 }
@@ -97,8 +69,17 @@ header .logged-user {
 
 
 #content .description {
+  padding-top: 30px;
   text-align: justify;
   text-indent: 50px;
+  padding-left: 100px;
+}
+
+#content .description p {
+  padding-left: 125px;
+  padding-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 5px;
 }
 
 #footer {
@@ -120,4 +101,13 @@ header .logged-user {
 
 tr:nth-child(even) {
     background: #F3D9D2;
+}
+
+#content .contact-info p {
+  padding-left: 180px;
+}
+
+#content .contact-info address {
+  padding-left: 180px;
+  padding-top: 10px;
 }

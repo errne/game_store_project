@@ -13,9 +13,10 @@
   <p class= "tags">Genres: <% @game.tags.each do |tag| %>
     <%= tag.name%><%= ", " unless tag.name == @game.tags.last.name%>
     <% end%>
+    <a  href="/gameTags/<%= @game.id %>/edit"> Edit tags</a>
   </p>
 <!--  <a  href="/games/<%= @game.id %>/edit/tags"> Edit tags</a>-->
-  <a  href="/gameTags/<%= @game.id %>/edit"> EDIT tags</a>
+  <!-- <a  href="/gameTags/<%= @game.id %>/edit"> Edit tags</a> -->
   <hr>
 </div>
 

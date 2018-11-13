@@ -1,0 +1,30 @@
+
+.btn-edit {
+  padding: 25px;
+}
+.btn-edit a {
+  background-color: red;
+  color: white;
+  margin-top: 15px;
+  padding: 1em 1em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.btn-add {
+  padding: 25px;
+  border-radius: 50%;
+  width: 350px;
+}
+
+.btn-add a {
+  background-color: green;
+  color: white;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  border-radius: 50%;
+}
+.add-button-list {
+  display: block;
+  width: 300px;
+  padding-left: 50px;
+}
