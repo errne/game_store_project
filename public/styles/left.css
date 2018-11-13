@@ -1,12 +1,13 @@
 .sidenav {
-    width: 200px;
+    /* width: 200px; */
     float: left;
     left: 0;
-    background-color: yellow;
+    /* background-color: yellow; */
     overflow-x: hidden;
     padding-top: 20px;
-    margin-top: 100px;
+    padding-bottom: 60px;
     min-height: 100vh;
+    /* background-image: linear-gradient(gold, yellow); */
 }
 
 .sidenav a {
@@ -19,8 +20,4 @@
 
 .sidenav a:hover {
     color: #f1f1f1;
-}
-
-.main {
-    margin-left: 200px; /* Same as the width of the sidenav */
 }
