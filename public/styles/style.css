@@ -3,7 +3,6 @@
 }
 
 body {
-  background-color: gold;
   padding: 0;
 }
 
@@ -21,6 +20,11 @@ td {
   margin-left: auto;
   margin-right: auto;
 }
+
+.usera {
+  border-radius: 50%;
+}
+
 
 .btn-edit {
   padding: 25px;
@@ -55,12 +59,17 @@ h6 {
 }
 
 header {
-  padding: 0;
+  padding-top: 0;
   background-color: pink;
   top: 0;
   width: 100%;
   position: absolute;
   height: 100px;
+}
+header .logged-user {
+  float: right;
+  padding-right: 25px;
+
 }
 
 #header {
@@ -74,6 +83,8 @@ header {
   padding-bottom:60px;
   padding-top: 100px;
   min-height: 90vh;
+  margin-left: 200px;
+  background-color: gold;
 }
 
 
@@ -83,7 +94,7 @@ header {
 }
 
 #footer {
-   position: absolute;
+   position: sticky;
    bottom:0;
    width:100%;
    height:60px;

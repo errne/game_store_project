@@ -3,31 +3,30 @@
 <head>
   <meta charset="utf-8">
   <title>EFinv</title>
-  <link rel="stylesheet" type="text/css" href="/style.css"
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
+  <link rel="stylesheet" type="text/css" href="styles/left.css">
 </head>
 <body>
   <header>
-    <nav>
-      <div id="header">
-        <img style="float: left; margin: 0px 15px 15px 0px; height: 80px; width: 100px;"
-        src="/images/EFinbor.png" alt="EFinv logo" />
-        <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/games">Games</a>
-          </li>
-          <li>
-            <a href="/developers">Developers</a>
-          </li>
-          <li>
-            <a href="/publishers">Publishers</a>
-          </li>
-        </ul>
+    <div id="header">
+      <img style="float: left; margin: 0px 15px 15px 0px; height: 80px; width: 100px;"
+      src="/images/EFinbor.png" alt="EFinv logo" />
+      <div class="logged-user">
+        <p>User: Alice</p>
+        <img class ="usera" style="display: inline; height: 80px; width: 58px;" src="/images/user.png" alt="user Alice" />
       </div>
-    </nav>
+    </div>
   </header>
+
+  <div class="sidenav">
+    <a href="/">Home</a>
+    <a href="/games">Games</a>
+    <a href="/developers">Developers</a>
+    <a href="/publishers">Publishers</a>
+    <a href="#">Tools</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </div>
 
   <section id="content">
     <%= yield %>
