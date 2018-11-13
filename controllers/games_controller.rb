@@ -5,7 +5,7 @@ require_relative('../models/game_tag.rb')
 also_reload( '../models/*' )
 
 get '/games' do
-  @games = Game.all_by_name()
+  @games = Game.all()
   erb ( :"games/index" )
 end
 
