@@ -7,10 +7,6 @@
   <h6>Location: <%= @developer.location %></h6>
 </div>
 
-<form action="/developers/<%= @developer.id %>/delete" method="POST">
-  <input class="btn-delete" type="submit" value="delete" />
-</form>
-
 <div class="prodcuts">
 
   <h2>Developed games:</h2>
@@ -23,5 +19,9 @@
 </div>
 
 <div class="btn-edit">
-  <a href="/developers/<%= @developer.id %>/edit"> EDIT</a>
+  <a href="/developers/<%= @developer.id %>/edit"> Edit developer</a>
 </div>
+
+<form class = "btn-delete" action="/developers/<%= @developer.id %>/delete" method="POST">
+  <input class="btn-delete" type="submit" value="delete developer" />
+</form>

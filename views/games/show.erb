@@ -20,16 +20,14 @@
   <hr>
 </div>
 
-<form action="/games/<%= @game.id %>/delete" method="POST">
-  <input class="btn-delete" type="submit" value="delete" />
-</form>
-
-
 <p>Buying cost: <%= @game.buying_cost %></p>
 <p>Selling price: <%= @game.selling_price %></p>
 <p>Markup: <%= @game.get_markup %></p>
 <p>In stock: <%= @game.stock_quantity %></p>
 
 <div class="btn-edit">
-  <a  href="/games/<%= @game.id %>/edit"> EDIT</a>
+  <a  href="/games/<%= @game.id %>/edit"> Edit this game</a>
 </div>
+<form class = "btn-delete" action="/games/<%= @game.id %>/delete" method="POST">
+  <input class="btn-delete" type="submit" value="delete this game" />
+</form>

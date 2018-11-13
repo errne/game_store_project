@@ -111,3 +111,9 @@ tr:nth-child(even) {
   padding-left: 180px;
   padding-top: 10px;
 }
+
+form  { display: table;      }
+div .form    { display: table-row;  }
+form label { display: table-cell; }
+form input { display: table-cell; }
+form select { display: table-cell; }

@@ -6,10 +6,6 @@
 
 <h6>Location: <%= @publisher.location %></h6>
 
-<form action="/publishers/<%= @publisher.id %>/delete" method="POST">
-  <input class="btn-delete" type="submit" value="delete" />
-</form>
-
 <h2>Published games:</h2>
 
 <ul>
@@ -19,5 +15,9 @@
 </ul>
 
 <div class="btn-edit">
-  <a href="/publishers/<%= @publisher.id %>/edit"> EDIT</a>
+  <a href="/publishers/<%= @publisher.id %>/edit"> Edit publisher</a>
 </div>
+
+<form class = "btn-delete" action="/publishers/<%= @publisher.id %>/delete" method="POST">
+  <input class="btn-delete" type="submit" value="delete publisher" />
+</form>

@@ -3,12 +3,18 @@
   padding: 25px;
 }
 .btn-edit a {
-  background-color: red;
+  background-color: orange;
   color: white;
   margin-top: 15px;
   padding: 1em 1em;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+.btn-delete {
+  float: right;
+  padding: 5px;
+  color: red;
 }
 .btn-add {
   padding: 25px;
