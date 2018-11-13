@@ -5,7 +5,7 @@ require_relative('../models/game_tag.rb')
 also_reload( '../models/*' )
 
 get '/games' do
-  @games = Game.all()
+  @games = Game.all_by_name()
   erb ( :"games/index" )
 end
 
@@ -62,4 +62,14 @@ post '/games/:id/delete' do
   GameTag.delete_by_game(params[:id])
   Game.delete(params[:id])
   redirect to("/games")
+end
+
+get '/games/sorted/by/year' do
+  @games = Game.all_by_year()
+  erb ( :"games/index" )
+end
+
+get '/games/sorted/by/namez' do
+  @games = Game.all_by_name__desc()
+  erb ( :"games/index" )
 end

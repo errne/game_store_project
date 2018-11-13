@@ -98,6 +98,18 @@ class Game
       return results.map { |game| Game.new( game ) }
     end
 
+    def self.all_by_year()
+      sql = "SELECT * FROM games ORDER BY year DESC;"
+      results = SqlRunner.run( sql )
+      return results.map { |game| Game.new( game ) }
+    end
+
+    def self.all_by_name__desc()
+      sql = "SELECT * FROM games ORDER BY name DESC;"
+      results = SqlRunner.run( sql )
+      return results.map { |game| Game.new( game ) }
+    end
+
     def self.find( id )
       sql = "SELECT * FROM games
       WHERE id = $1"
