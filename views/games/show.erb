@@ -5,7 +5,7 @@
 <h1><%= @game.name %></h1>
 <h6><a href="/developers/<%= @game.developer_id %>">Developed by: <%= @game.developer.name %></a></h6>
 <h6><a href="/publishers/<%= @game.publisher_id %>">Published by: <%= @game.publisher.name %></a></h6>
-
+<h6>Released: <%= @game.year %></h6>
 <div class="description">
   <h3>Description:</h3>
   <p><%= @game.description %></p>

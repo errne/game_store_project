@@ -21,6 +21,7 @@ CREATE TABLE games (
   name VARCHAR(255) not null,
   developer_id INT4 not null references developers(id),
   publisher_id INT4 references publishers(id),
+  year INT4,
   description TEXT,
   stock_quantity INT4,
   buying_cost INT4 not null,

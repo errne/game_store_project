@@ -22,7 +22,7 @@
 
 <!-- ## TODO: choose one way to select -->
   <div class="form">
-    <label for="publisher">Developer:</label>
+    <label for="publisher">Publisher:</label>
     <select id= "publisher" name="publisher_id">
 
       <% @publishers.each do |publisher| %>
@@ -31,6 +31,10 @@
 
     </select>
   </div>
+  <div class="form">
+    <label for="year">Release year:</label>
+    <input type="number" name="year" id="year" min="1990">
+  </div>
 
   <div class="form">
     <label for="description">Description:</label>
@@ -38,16 +42,16 @@
   </div>
   <div class="form">
     <label for="stock-quantity">In stock:</label>
-    <input id = "stock-quantity" type="number" name="stock_quantity" value="<%= @game.stock_quantity%>">
+    <input id = "stock-quantity" type="number" name="stock_quantity" value="<%= @game.stock_quantity%>" min="0">
   </div>
   <div class="form">
     <label for="buying-cost">Buying cost</label>
-    <input id="buying-cost" type = "number" name="buying_cost" value="<%= @game.buying_cost%>">
+    <input id="buying-cost" type = "number" name="buying_cost" value="<%= @game.buying_cost%>" min="0">
   </div>
 
   <div class="form">
     <label for="selling-price">Selling price</label>
-    <input id= "selling-price "type= "number" name="selling_price" value="<%= @game.selling_price%>">
+    <input id= "selling-price "type= "number" name="selling_price" value="<%= @game.selling_price%>" min="0">
   </div>
 
   <input class= "btn-submit" type="submit" value="update">

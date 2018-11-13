@@ -10,6 +10,8 @@
       <th></th>
       <th>Publisher</th>
       <th></th>
+      <th>Release Year</th>
+      <th></th>
       <th>In Stock</th>
       <th></th>
       <th>Cost</th>
@@ -25,6 +27,8 @@
       <td><a href="/developers/<%=game.developer_id%>"><%= game.developer.name %></a></td>
       <td>|</td>
       <td><a href="/publishers/<%=game.publisher_id%>"><%= game.publisher.name %></a></td>
+      <td>|</td>
+      <td><%= game.year %></td>
       <td>|</td>
       <td><%= game.stock_quantity %></td>
       <td>|</td>

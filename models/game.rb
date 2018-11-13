@@ -6,7 +6,7 @@ require_relative('tag')
 
 class Game
 
-  attr_reader :id, :name, :developer_id, :publisher_id, :description, :stock_quantity,
+  attr_reader :id, :name, :developer_id, :publisher_id, :year, :description, :stock_quantity,
   :buying_cost, :selling_price
 
 
@@ -15,6 +15,7 @@ class Game
     @name = options['name']
     @developer_id = options['developer_id'].to_i
     @publisher_id = options['publisher_id'].to_i
+    @year = options['year'].to_i
     @description = options['description']
     @stock_quantity = options['stock_quantity'].to_i
     @buying_cost = options['buying_cost'].to_i
@@ -41,6 +42,7 @@ class Game
       name,
       developer_id,
       publisher_id,
+      year,
       description,
       stock_quantity,
       buying_cost,
@@ -48,10 +50,10 @@ class Game
     )
     VALUES
     (
-      $1, $2, $3, $4, $5, $6, $7
+      $1, $2, $3, $4, $5, $6, $7, $8
     )
     RETURNING id"
-    values = [@name, @developer_id, @publisher_id, @description, @stock_quantity,
+    values = [@name, @developer_id, @publisher_id, @year, @description, @stock_quantity,
       @buying_cost, @selling_price]
       results = SqlRunner.run(sql, values)
       @id = results.first()['id'].to_i
@@ -64,16 +66,17 @@ class Game
         name,
         developer_id,
         publisher_id,
+        year,
         description,
         stock_quantity,
         buying_cost,
         selling_price
         ) =
         (
-          $1, $2, $3, $4, $5, $6, $7
+          $1, $2, $3, $4, $5, $6, $7, $8
         )
-        WHERE id = $8"
-        values = [@name, @developer_id, @publisher_id, @description, @stock_quantity,
+        WHERE id = $9"
+        values = [@name, @developer_id, @publisher_id, @year, @description, @stock_quantity,
           @buying_cost, @selling_price, @id]
         SqlRunner.run( sql, values )
       end

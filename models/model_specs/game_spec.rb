@@ -7,7 +7,8 @@ class TestGame < MiniTest::Test
   def setup
 
     game_options = {"name" => "Skyrim", "developer_id" => 1, "publisher_id" => 1,
-      "description" => "an interesting open world game", "stock_quantity" => 9, "buying_cost" => 25,
+      "year" => 2011, "description" => "an interesting open world game",
+      "stock_quantity" => 9, "buying_cost" => 25,
       "selling_price" => 35 }
       @game1 = Game.new(game_options)
     end
@@ -45,7 +46,11 @@ class TestGame < MiniTest::Test
     end
 
     def test_game_returns_all_tags
-      assert_equal([], @game1.tags)  
+      assert_equal([], @game1.tags)
+    end
+
+    def test_game_has_year
+      assert_equal(2011, @game1.year)
     end
 
   end
