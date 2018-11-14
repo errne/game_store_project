@@ -23,7 +23,7 @@
 <p>Buying cost: <%= @game.buying_cost %></p>
 <p>Selling price: <%= @game.selling_price %></p>
 <p>Markup: <%= @game.get_markup %></p>
-<p>In stock: <%= @game.stock_quantity %></p>
+<p>In stock: <%= @game.stock_quantity %><%= @game.stock_level()%></p>
 
 <div class="btn-edit">
   <a  href="/games/<%= @game.id %>/edit"> Edit this game</a>

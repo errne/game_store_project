@@ -78,61 +78,65 @@ class Game
         WHERE id = $9"
         values = [@name, @developer_id, @publisher_id, @year, @description, @stock_quantity,
           @buying_cost, @selling_price, @id]
-        SqlRunner.run( sql, values )
+          SqlRunner.run( sql, values )
+        end
+
+        def tags()
+          sql = "SELECT tags.*
+          FROM tags
+          INNER JOIN games_tags
+          ON games_tags.tag_id = tags.id
+          WHERE game_id = $1"
+          values = [@id]
+          tags = SqlRunner.run(sql, values)
+          return tags.map { |tag| Tag.new(tag) }
+        end
+
+        def stock_level()
+          return " low stock" unless @stock_quantity > 5
+        end
+
+        def self.all()
+          sql = "SELECT * FROM games ORDER BY name ASC;"
+          results = SqlRunner.run( sql )
+          return results.map { |game| Game.new( game ) }
+        end
+
+        def self.all_by_year()
+          sql = "SELECT * FROM games ORDER BY year DESC;"
+          results = SqlRunner.run( sql )
+          return results.map { |game| Game.new( game ) }
+        end
+
+        def self.all_by_name__desc()
+          sql = "SELECT * FROM games ORDER BY name DESC;"
+          results = SqlRunner.run( sql )
+          return results.map { |game| Game.new( game ) }
+        end
+
+        def self.find( id )
+          sql = "SELECT * FROM games
+          WHERE id = $1"
+          values = [id]
+          results = SqlRunner.run( sql, values )
+          return Game.new( results.first )
+        end
+
+        def self.find_all_by_tag(tag_id)
+          tag = Tag.find(tag_id)
+          tag.games()
+        end
+
+        def self.delete_all
+          sql = "DELETE FROM games"
+          SqlRunner.run( sql )
+        end
+
+        def self.delete(id)
+          sql = "DELETE FROM games
+          WHERE id = $1"
+          values = [id]
+          SqlRunner.run( sql, values )
+        end
+
       end
-
-      def tags()
-        sql = "SELECT tags.*
-        FROM tags
-        INNER JOIN games_tags
-        ON games_tags.tag_id = tags.id
-        WHERE game_id = $1"
-        values = [@id]
-        tags = SqlRunner.run(sql, values)
-        return tags.map { |tag| Tag.new(tag) }
-      end
-
-    def self.all()
-      sql = "SELECT * FROM games ORDER BY name ASC;"
-      results = SqlRunner.run( sql )
-      return results.map { |game| Game.new( game ) }
-    end
-
-    def self.all_by_year()
-      sql = "SELECT * FROM games ORDER BY year DESC;"
-      results = SqlRunner.run( sql )
-      return results.map { |game| Game.new( game ) }
-    end
-
-    def self.all_by_name__desc()
-      sql = "SELECT * FROM games ORDER BY name DESC;"
-      results = SqlRunner.run( sql )
-      return results.map { |game| Game.new( game ) }
-    end
-
-    def self.find( id )
-      sql = "SELECT * FROM games
-      WHERE id = $1"
-      values = [id]
-      results = SqlRunner.run( sql, values )
-      return Game.new( results.first )
-    end
-
-    def self.find_all_by_tag(tag_id)
-      tag = Tag.find(tag_id)
-      tag.games()
-    end
-
-    def self.delete_all
-      sql = "DELETE FROM games"
-      SqlRunner.run( sql )
-    end
-
-    def self.delete(id)
-      sql = "DELETE FROM games
-      WHERE id = $1"
-      values = [id]
-      SqlRunner.run( sql, values )
-    end
-
-  end
