@@ -73,3 +73,8 @@ get '/games/sorted/by/namez' do
   @games = Game.all_by_name__desc()
   erb ( :"games/index" )
 end
+
+get '/games/sorted/by/:id' do
+  @games = Game.find_all_by_tag(params[:id])
+  erb ( :"games/index" )
+end

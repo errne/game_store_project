@@ -33,7 +33,7 @@
   </div>
   <div class="form">
     <label for="year">Release year:</label>
-    <input type="number" name="year" id="year" min="1990">
+    <input type="number" name="year" id="year" min="1990" value="<%= @game.year%>">
   </div>
 
   <div class="form">
@@ -56,3 +56,5 @@
 
   <input class= "btn-submit" type="submit" value="update">
 </form>
+
+<p>go back to <a href="/games/<%= @game.id%>"><%= @game.name%>"</a> without making changes</p>

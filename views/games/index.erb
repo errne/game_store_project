@@ -37,7 +37,7 @@
       <td><%= game.selling_price %></td>
       <td>|</td>
       <td><% game.tags.each do |tag| %>
-        <%= tag.name%><%= ", " unless tag.name == game.tags.last.name%>
+        <a href="/games/sorted/by/<%=tag.id%>"><%= tag.name%></a><%= ", " unless tag.name == game.tags.last.name%>
         <% end%></td>
       </tr>
       <% end %>

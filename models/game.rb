@@ -118,6 +118,11 @@ class Game
       return Game.new( results.first )
     end
 
+    def self.find_all_by_tag(tag_id)
+      tag = Tag.find(tag_id)
+      tag.games()
+    end
+
     def self.delete_all
       sql = "DELETE FROM games"
       SqlRunner.run( sql )
