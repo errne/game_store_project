@@ -80,6 +80,21 @@ get '/games/sorted/by/low-stock' do
   erb ( :"games/index" )
 end
 
+get '/games/sorted/by/price' do
+  @games = Game.all_by_selling_price_desc()
+  erb ( :"games/index" )
+end
+
+get '/games/sorted/by/cost' do
+@games = Game.all_by_buying_cost_desc()
+erb ( :"games/index" )
+end
+
+get '/games/sorted/by/stock' do
+@games = Game.all_by_stock_quantity()
+erb ( :"games/index" )
+end
+
 get '/games/sorted/by/:id' do
   @games = Game.find_all_by_tag(params[:id])
   erb ( :"games/index" )

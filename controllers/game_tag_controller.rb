@@ -15,7 +15,6 @@ get '/gameTags/:id/new' do
 end
 
 post '/gameTags/:id/edit' do
-  # GameTag.new(params).save
   params["tag_id"].each do |id|
     GameTag.new({"game_id" => params[:game_id], "tag_id" => id}).save
   end
@@ -25,7 +24,6 @@ end
 get '/gameTags/:id/edit' do
   @game = Game.find(params['id'])
   @gameTag = GameTag.all_by_game(params['id'])
-  # @gameTag = GameTag.find(params['id'])
   erb(:"gameTags/edit")
 end
 

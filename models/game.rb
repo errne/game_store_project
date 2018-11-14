@@ -114,6 +114,24 @@ class Game
           return results.map { |game| Game.new( game ) }
         end
 
+        def self.all_by_selling_price_desc()
+          sql = "SELECT * FROM games ORDER BY selling_price DESC;"
+          results = SqlRunner.run( sql )
+          return results.map { |game| Game.new( game ) }
+        end
+
+        def self.all_by_buying_cost_desc()
+          sql = "SELECT * FROM games ORDER BY buying_cost ASC;"
+          results = SqlRunner.run( sql )
+          return results.map { |game| Game.new( game ) }
+        end
+
+        def self.all_by_stock_quantity()
+          sql = "SELECT * FROM games ORDER BY stock_quantity ASC;"
+          results = SqlRunner.run( sql )
+          return results.map { |game| Game.new( game ) }
+        end
+
         def self.all_stock_value()
           return Game.all.reduce(0) { |sum, game| sum + (game.buying_cost * game.stock_quantity) }
         end
