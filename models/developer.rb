@@ -46,7 +46,7 @@ class Developer
   end
 
   def self.all()
-    sql = "SELECT * FROM developers"
+    sql = "SELECT * FROM developers ORDER BY name ASC"
     results = SqlRunner.run( sql )
     return results.map { |developer| Developer.new( developer ) }
   end

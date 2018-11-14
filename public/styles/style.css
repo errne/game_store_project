@@ -19,6 +19,8 @@ td {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  max-width: 300px;
+  max-height: 300px;
 }
 
 .usera {
@@ -61,7 +63,6 @@ header .logged-user {
   padding-bottom:60px;
   margin-top: 100px;
   min-height: 100vh;
-  /* margin-left: 200px; */
   background-color: gold;
   background-image: linear-gradient(gold, yellow);
 
@@ -82,13 +83,18 @@ header .logged-user {
   padding-bottom: 5px;
 }
 
+ ul, h2 .products {
+  padding-left: 200px;
+  padding-top: 5px;
+}
+
 #footer {
-   position: sticky;
-   bottom:0;
-   width:100%;
-   height:60px;
-   background-color: pink;
-   background-image: linear-gradient(yellow, pink);
+  position: sticky;
+  bottom:0;
+  width:100%;
+  height:60px;
+  background-color: pink;
+  background-image: linear-gradient(yellow, pink);
 }
 
 #footer p {
@@ -100,7 +106,7 @@ header .logged-user {
 }
 
 tr:nth-child(even) {
-    background: #F3D9D2;
+  background: #F3D9D2;
 }
 
 #content .contact-info p {
