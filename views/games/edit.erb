@@ -10,17 +10,17 @@
     <label for="select-developer">Developer:</label>
     <select id= "select-developer" name="developer_id" selected = "<%= @game.developer_id%>">
       <% @developers.each do |developer| %>
-         <% if developer.id == @game.developer_id %>
-           <option value=<%= developer.id %> selected><%= developer.name.capitalize %></option>
-         <% else %>
-           <option value=<%= developer.id %>><%= developer.name.capitalize %></option>
-         <% end %>
-       <% end %>
+      <% if developer.id == @game.developer_id %>
+      <option value=<%= developer.id %> selected><%= developer.name.capitalize %></option>
+      <% else %>
+      <option value=<%= developer.id %>><%= developer.name.capitalize %></option>
+      <% end %>
+      <% end %>
 
     </select>
   </div>
 
-<!-- ## TODO: choose one way to select -->
+  <!-- ## TODO: choose one way to select -->
   <div class="form">
     <label for="publisher">Publisher:</label>
     <select id= "publisher" name="publisher_id">

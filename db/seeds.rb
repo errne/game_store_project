@@ -10,32 +10,6 @@ require("pry-byebug")
 # Publisher.delete_all()
 Tag.delete_all()
 
-# developer1 = Developer.new({
-#   "name" => "Obsidian",
-#   "location" => "USA"
-# })
-#
-# developer1.save()
-#
-# publisher1 = Publisher.new({
-#   "name" => "Bethesda",
-#   "location" => "USA"
-# })
-#
-# publisher1.save()
-#
-# game1 = Game.new({
-#   "name" => "New Vegas",
-#   "developer_id" => 1,
-#   "publisher_id" => 1,
-#   "description" => "The best fallout game",
-#   "stock_quantity" => 8,
-#   "buying_cost" => 11,
-#   "selling_price" => 20
-# })
-#
-# game1.save()
-
 tag1 = Tag.new({"name" => "RPG"})
 tag2 = Tag.new({"name" => "Action"})
 tag3 = Tag.new({"name" => "Adventure"})

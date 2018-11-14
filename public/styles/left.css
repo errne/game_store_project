@@ -1,23 +1,20 @@
 .sidenav {
-    /* width: 200px; */
-    float: left;
-    left: 0;
-    /* background-color: yellow; */
-    overflow-x: hidden;
-    padding-top: 20px;
-    padding-bottom: 60px;
-    min-height: 100vh;
-    /* background-image: linear-gradient(gold, yellow); */
+  float: left;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  padding-bottom: 60px;
+  min-height: 100vh;
 }
 
 .sidenav a {
-    padding: 6px 6px 6px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
+  padding: 6px 6px 6px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
 }
 
 .sidenav a:hover {
-    color: #f1f1f1;
+  color: #f1f1f1;
 }

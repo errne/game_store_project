@@ -15,15 +15,15 @@
     <% end%>
     <a  href="/gameTags/<%= @game.id %>/edit"> Edit tags</a>
   </p>
-<!--  <a  href="/games/<%= @game.id %>/edit/tags"> Edit tags</a>-->
-  <!-- <a  href="/gameTags/<%= @game.id %>/edit"> Edit tags</a> -->
   <hr>
 </div>
 
-<p>Buying cost: <%= @game.buying_cost %></p>
-<p>Selling price: <%= @game.selling_price %></p>
-<p>Markup: <%= @game.get_markup %></p>
-<p>In stock: <%= @game.stock_quantity %><%= @game.stock_level()%></p>
+<ul>
+  <li>Buying cost: <%= @game.buying_cost %></li>
+  <li>Selling price: <%= @game.selling_price %></li>
+  <li>Markup: <%= @game.get_markup %></li>
+  <li>In stock: <%= @game.stock_quantity %><%= @game.stock_level()%></li>
+</ul>
 
 <div class="btn-edit">
   <a  href="/games/<%= @game.id %>/edit"> Edit this game</a>

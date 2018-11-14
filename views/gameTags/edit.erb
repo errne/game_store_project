@@ -7,7 +7,7 @@
 <ul>
   <% for gameTag in GameTag.all_by_game(@game.id) %>
   <li>
-  <p><%= gameTag.tag.name %> </p>
+    <p><%= gameTag.tag.name %> </p>
     <p>
       <form action="/gameTags/<%= gameTag.id %>/<%=gameTag.game_id %>/delete" method="POST">
         <input class="btn btn--danger" type="submit" value="delete" />
