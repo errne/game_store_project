@@ -5,6 +5,7 @@ require_relative('../models/game_tag.rb')
 also_reload( '../models/*' )
 
 get '/games' do
+  params["sort_by"]
   @games = Game.all()
   erb ( :"games/index" )
 end
@@ -71,6 +72,11 @@ end
 
 get '/games/sorted/by/namez' do
   @games = Game.all_by_name__desc()
+  erb ( :"games/index" )
+end
+
+get '/games/sorted/by/low-stock' do
+  @games = Game.all_low_stock()
   erb ( :"games/index" )
 end
 

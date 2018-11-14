@@ -1,7 +1,5 @@
 <h1>EFinv inventory management</h1>
 
-<p>testing, testing, testing</p>
-
 <div class="flex-container">
   <div>
     <h2>Tools:</h2>
@@ -15,9 +13,13 @@
 
   </div>
   <div>
-    <h2> Low Stock games: </h2>
+    <h2> Lists: </h2>
+    <a class = "index-link" href="/games/sorted/by/low-stock">List of low stock games</a>
   </div>
-  <div>3 boxy moxy</div>
-  <div>4 boxy moxy</div>
+  <div>
+    <h2>Reports:</h2>
+    <p>Stock value: £<%= Game.all_stock_value%></p>
+    <p>Predicted total profits: £<%= Game.predicted_total_profits%></p>
+  </div>
 
 </div>

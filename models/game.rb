@@ -114,6 +114,33 @@ class Game
           return results.map { |game| Game.new( game ) }
         end
 
+        def self.all_stock_value()
+          return Game.all.reduce(0) { |sum, game| sum + (game.buying_cost * game.stock_quantity) }
+        end
+
+        def self.all_stock_sale_value
+          return Game.all.reduce(0) { |sum, game| sum + (game.selling_price * game.stock_quantity) }
+        end
+
+        def self.predicted_total_profits
+          return Game.all_stock_sale_value - Game.all_stock_value
+        end
+
+        def self.all_low_stock()
+          sql = "SELECT * FROM games
+          WHERE stock_quantity < 5"
+          results = SqlRunner.run( sql )
+          return results.map { |game| Game.new( game ) }
+        end
+
+        def self.all_low_stock__custom(number)
+          sql = "SELECT * FROM games
+          WHERE stock_quantity < $1"
+          values = number
+          results = SqlRunner.run( sql, values )
+          return results.map { |game| Game.new( game ) }
+        end
+
         def self.find( id )
           sql = "SELECT * FROM games
           WHERE id = $1"
