@@ -13,6 +13,7 @@
 
 .btn-delete {
   float: right;
+  margin-right: 25px;
   padding: 5px;
   color: red;
 }

@@ -13,7 +13,8 @@ CREATE TABLE developers
 (
   id SERIAL8 primary key,
   name VARCHAR(255) not null,
-  location VARCHAR(255)
+  location VARCHAR(255),
+  img_link TEXT
 );
 
 CREATE TABLE games (
