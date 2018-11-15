@@ -1,6 +1,8 @@
+-- DROP TABLE games_tags;
 -- DROP TABLE games;
 -- DROP TABLE publishers;
 -- DROP TABLE developers;
+-- DROP TABLE tags;
 
 CREATE TABLE publishers
 (
