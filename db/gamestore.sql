@@ -36,7 +36,7 @@ CREATE TABLE tags (
   name VARCHAR(255) not null
 );
 
-CREATE TABLE games_tags (
+CREATE TABLE taggings (
   id SERIAL8 primary key,
   game_id INT4 not null references games(id) ON DELETE CASCADE,
   tag_id INT4 not null references tags(id) ON DELETE CASCADE

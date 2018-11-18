@@ -29,7 +29,7 @@ class Tag
   def games()
     sql = "SELECT games.*
     FROM games
-    INNER JOIN games_tags
+    INNER JOIN taggings
     ON games_tags.game_id = games.id
     WHERE tag_id = $1"
     values = [@id]

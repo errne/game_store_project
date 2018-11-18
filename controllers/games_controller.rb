@@ -1,7 +1,7 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require_relative( '../models/game.rb' )
-require_relative('../models/game_tag.rb')
+require_relative('../models/tagging.rb')
 also_reload( '../models/*' )
 
 get '/games' do
@@ -20,7 +20,7 @@ end
 post '/games' do
   game = Game.new(params).save
   params["tag_id"].each do |id|
-    GameTag.new({"game_id" => game, "tag_id" => id}).save
+    Tagging.new({"game_id" => game, "tag_id" => id}).save
   end
   redirect to '/games'
 end
@@ -48,7 +48,7 @@ post '/games/:id/edit/tags' do
   # gt = GameTag.new(params)
   # gt.save
   params["tag_id"].each do |id|
-    GameTag.new({"game_id" => params['game_id'], "tag_id" => id}).save
+    Tagging.new({"game_id" => params['game_id'], "tag_id" => id}).save
   end
   redirect to 'games/' + params['id'] + '/edit/tags'
 end
@@ -60,7 +60,7 @@ post '/games/:id' do
 end
 
 post '/games/:id/delete' do
-  GameTag.delete_by_game(params[:id])
+  Tagging.delete_by_game(params[:id])
   Game.delete(params[:id])
   redirect to("/games")
 end

@@ -1,6 +1,6 @@
 require_relative( '../db/sql_runner' )
-class GameTag
-  
+class Tagging
+
   attr_reader :id, :game_id, :tag_id
 
 def initialize(options)
@@ -10,7 +10,7 @@ def initialize(options)
 end
 
 def save()
-    sql = "INSERT INTO games_tags
+    sql = "INSERT INTO taggings
     (
       game_id,
       tag_id
@@ -26,52 +26,52 @@ def save()
   end
 
   def self.find( id )
-    sql = "SELECT * FROM games_tags
+    sql = "SELECT * FROM taggings
     WHERE id = $1"
     values = [id]
     results = SqlRunner.run( sql, values )
-    return GameTag.new( results.first )
+    return Tagging.new( results.first )
   end
 
   def self.delete_by_game(game_id)
-    sql = "DELETE FROM games_tags
+    sql = "DELETE FROM taggings
     WHERE game_id = $1"
     values = [game_id]
     SqlRunner.run( sql, values )
   end
 
   def self.delete_by_game_and_tag(game_id, tag_id)
-    sql = "DELETE FROM games_tags
+    sql = "DELETE FROM taggings
     WHERE game_id = $1 AND tag_id = $2"
     values = [game_id, tag_id]
     SqlRunner.run( sql, values )
   end
 
   def self.all()
-    sql = "SELECT * FROM games_tags"
+    sql = "SELECT * FROM taggings"
     visits = SqlRunner.run(sql)
-    result = visits.map { |gameTag| GameTag.new( gameTag ) }
+    result = visits.map { |tagging| Tagging.new( tagging ) }
     return result
   end
 
   def self.all_by_game(game_id)
-    sql = "SELECT * FROM games_tags
+    sql = "SELECT * FROM taggings
     WHERE game_id = $1"
     values = [game_id]
     visits = SqlRunner.run(sql, values)
-    result = visits.map { |gameTag| GameTag.new( gameTag ) }
+    result = visits.map { |tagging| Tagging.new( tagging ) }
     return result
   end
 
   def self.delete(id)
-    sql = "DELETE FROM games_tags
+    sql = "DELETE FROM taggings
     WHERE id = $1"
     values = [id]
     SqlRunner.run( sql, values )
   end
 
   def self.delete_all()
-    sql = "DELETE FROM games_tags"
+    sql = "DELETE FROM taggings"
     SqlRunner.run(sql)
   end
 

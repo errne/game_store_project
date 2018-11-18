@@ -84,8 +84,8 @@ class Game
         def tags()
           sql = "SELECT tags.*
           FROM tags
-          INNER JOIN games_tags
-          ON games_tags.tag_id = tags.id
+          INNER JOIN taggings
+          ON taggings.tag_id = tags.id
           WHERE game_id = $1"
           values = [@id]
           tags = SqlRunner.run(sql, values)

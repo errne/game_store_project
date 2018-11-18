@@ -1,0 +1,18 @@
+<h1>Editing tags for <%= @game.name %></h1>
+
+<p class="btn--wrapper">
+  <a class="btn-new" href="/taggings/<%= @game.id %>/new">Add new tag</a>
+</p>
+
+<ul>
+  <% for tagging in Tagging.all_by_game(@game.id) %>
+  <li>
+    <p><%= tagging.tag.name %> </p>
+    <p>
+      <form action="/taggings/<%= tagging.id %>/<%=tagging.game_id %>/delete" method="POST">
+        <input class="btn btn--danger" type="submit" value="delete" />
+      </form>
+    </p>
+  </li>
+  <% end %>
+</ul>
