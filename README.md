@@ -1,7 +1,7 @@
 # game_store_project
 ## Running
 
-after creating databse, run app.rb file.
+after creating database named 'gamestore', run app.rb file.
 
 ## Technologies used:
 Sinatra, PostgreSQL and Minitest for running test.
