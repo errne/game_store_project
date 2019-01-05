@@ -30,7 +30,7 @@ class Tag
     sql = "SELECT games.*
     FROM games
     INNER JOIN taggings
-    ON games_tags.game_id = games.id
+    ON taggings.game_id = games.id
     WHERE tag_id = $1"
     values = [@id]
     games = SqlRunner.run(sql, values)
