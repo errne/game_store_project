@@ -3,7 +3,7 @@
 
 after creating database named 'gamestore',
 run seed.rb
-# terminal
+in terminal
 psql -d gamestore -f gamestore.sql
 
 run app.rb file.
