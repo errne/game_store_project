@@ -1,7 +1,14 @@
 # game_store_project
 ## Running
 
-after creating database named 'gamestore', run app.rb file.
+after creating database named 'gamestore',
+run seed.rb
+# terminal
+psql -d gamestore -f gamestore.sql
+
+run app.rb file.
+
+For Ubuntu: in db/sql_runner.rb file set host: '' (to empty string instead of localhost).
 
 ## Technologies used:
 Sinatra, PostgreSQL and Minitest for running test.
