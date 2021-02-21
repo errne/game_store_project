@@ -1,6 +1,6 @@
 require_relative( "../models/tag.rb" )
 require_relative( "../models/game.rb" )
-require_relative( "../models/game_tag.rb" )
+require_relative( "../models/tagging.rb" )
 require_relative( "../models/developer.rb" )
 require_relative( "../models/publisher.rb" )
 require("pry-byebug")
