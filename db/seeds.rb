@@ -3,7 +3,7 @@ require_relative( "../models/game.rb" )
 require_relative( "../models/tagging.rb" )
 require_relative( "../models/developer.rb" )
 require_relative( "../models/publisher.rb" )
-require("pry-byebug")
+# require("pry-byebug")
 
 # Game.delete_all()
 # Developer.delete_all()
